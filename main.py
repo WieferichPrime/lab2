@@ -6,15 +6,12 @@ n = int(input('Введите положительное число n: '))
 simpleNumbs = simple(n)
 p = random.randint(2, 1000)
 q = random.randint(2, 1000)
-rand = random.randint(0, len(simpleNumbs) - 1)
-while not simpleNumbs[rand]:
-    rand = random.randint(0, len(simpleNumbs) - 1)
-rand1 = random.randint(0, len(simpleNumbs) - 1)
-while not simpleNumbs[rand1]:
-    rand1 = random.randint(0, len(simpleNumbs) - 1)
 
+rand = random.randint(0, len(simpleNumbs) - 1)
 alice = Person(rand, q, p)
-bob = Person(rand1, q, p)
+
+rand = random.randint(0, len(simpleNumbs) - 1)
+bob = Person(rand, q, p)
 
 alice.say(bob)
 bob.say(alice)
@@ -23,9 +20,9 @@ print('Алиса передаёт',alice.said, 'Бобу')
 print('Боб передаёт' , bob.said, 'Алисе')
 print('q = ',q)
 print('p = ',p)
-print('a = ',rand)
-print('b = ',rand1)
+print('a = ',alice.a)
+print('b = ',bob.a)
 
-aliceKey = bob.listened ** rand1 % p
-if alice.listened ** rand % p == aliceKey:
+aliceKey = bob.listened ** bob.a % p
+if alice.listened ** alice.a % p == aliceKey:
     print('Ключ:', aliceKey)

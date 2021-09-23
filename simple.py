@@ -8,6 +8,8 @@ def simple(n):
             for i in range(p**2, n):
                 if i % p == 0 and arr[i]:
                     arr[i] = False
-                    res.append(i)
         p += 1
+    for i in range(len(arr)):
+        if arr[i]:
+            res.append(i)
     return res
