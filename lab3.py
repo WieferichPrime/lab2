@@ -6,14 +6,6 @@ def encodeMessage(message, e, mod):
                map(lambda char: ru.index(char) if (char in ru) else 228, message)))
 
 def decodeMessage( message, d, mod):
-    # res = []
-    # for char in message:
-    #     res.append(char ** d % mod)
-    # res2 = ''
-    # for char in res:
-    #     if char < len(ru):
-    #         res2 += ru[char]
-    # return res2
     return list(map(lambda num: ru[num] if (num < len(ru) and ru[num] in ru) else '?',
                    map(lambda num: int(num) ** d % mod , message)))
 
